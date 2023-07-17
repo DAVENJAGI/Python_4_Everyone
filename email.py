@@ -8,16 +8,15 @@ cur.execute("""CREATE TABLE Counts(emailtext, count INTEGER)""")
 
 fname = input('Enter file name: ')
 if (len(fname) < 1):
-fname = 'mbox-short.txt'
+    fname = 'mbox-short.txt'
 fh = open(fname)
 for line in fh:
-	if not line.startwith('from: '):
-		continue
-	pieces = line.split()
-	email = pieces[1]
-	cur.execute('SELECT Count FROM Counts WHERE email = ?, (email))
-	row = cur.fetchone()
-if row is None:
+	if not line.startwith('from: '): continue
+        pieces = line.split ()
+        email = pieces[1]
+	    cur.execute('SELECT Count FROM Counts WHERE email = ?, (email)')
+            row = cur.fetchone()
+        if row is None:
 		cur.execute('''INSERT INTO Counts(email, Count) Values(?, 1)''', (email))
 	else:
 		cur.execute('update counts SET Count = Count + 1 WHERE email = ?', (email, ))
