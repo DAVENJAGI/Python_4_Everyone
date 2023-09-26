@@ -8,32 +8,25 @@ class Node:
         return str(self.value)
 
 class BinarySearchTree:
-    def __init__(self, root):
-        self.root = None
+    def __init__(self, root=None):
+        self.root = root
 
-    def insert(self, value):
-        if self.root is None:
-            self.root = Node(value)
+    def insert(self, *numbers):
+        for number in numbers:
+            self._insert_recursive(self.root, numbers)
+        
+    def _insert_recursive(self, node, number):
+        if node is None:
+            node = Node(number)
+        elif number < node.value:
+                self._insert_recursive(node.left, number)
         else:
-            self._insert_recursive(self.root, value)
-
-    def _insert_recursive(self, node, value):
-        if value < node.value:
-            if node.left is None:
-                node.left = Node(value)
-            else:
-                self._insert_recursive(node.left, value)
-
-        elif value > node.value:
-            if node.right is None:
-                node.right = Node(value)
-            else:
-                self._insert_recursive(node.right, value)
+            self._insert_recursive(node.right, number)
 
     def search(self, value):
         return self._search_recursive(self.root, value)
 
-    def _search_recursive(sef, node, value):
+    def _search_recursive(self, node, value):
         if node is None or node.value == value:
             return node
         if value < node.value:
@@ -43,14 +36,14 @@ class BinarySearchTree:
 
 tree = BinarySearchTree()
 
-tree.insert(10)
-tree.insert(5)
-tree.insert(15)
-tree.insert(30)
-tree.insert(25)
-tree.insert(17)
+tree.insert(10, 15, 25, 30, 2, 7, 12, 18)
+#tree.insert(5)
+#tree.insert(15)
+#tree.insert(30)
+#tree.insert(25)
+#tree.insert(17)
 
 node = tree.search(25)
 if node is not None:
-    print(node.value)
+    print(node.number)
 
