@@ -17,6 +17,7 @@ class BinarySearchTree:
             self.root = Node(value)
         else:
             self._insert_recursive(self.root, value)
+  
 
     def _insert_recursive(self, node, value):
         if value < node.value:

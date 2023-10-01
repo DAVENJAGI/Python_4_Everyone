@@ -7,3 +7,9 @@ def circle_area(r):
     if r < 0:
         raise ValueError("The radius cannot be negative")
     return pi * (r**2)
+def circle_circumference(r):
+    if type(r) not in [float, int]:
+        raise TypeError("The radius must be a non-negative real number")
+    if r < 0:
+        raise ValueError("The radius cannot be negative")
+    return(pi * (r * 2))

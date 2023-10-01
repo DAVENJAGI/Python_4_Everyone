@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import json
 
 with open('states.json') as f:
