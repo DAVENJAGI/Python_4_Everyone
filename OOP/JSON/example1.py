@@ -12,6 +12,6 @@ for state in data['states']:
 #    print(data)
 
 with open('new_states.json', 'w') as j:
-          json.dump(data, j, indent=2)
+          json.dump(data, j, indent=3)
 #    print(state['name'], ':', state['abbreviation'])
 

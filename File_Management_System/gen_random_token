@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#A bashscript that generates a random 15 character token.
+sudo python3
+import secrets
+secrets.token_hex(15)

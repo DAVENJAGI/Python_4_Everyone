@@ -7,9 +7,7 @@ data = pd.DataFrame({
     "value2": [45, 41, 85, 96, 12, 33, 54, 18]
     })
 
-data = data.set_index("id")
-existing = pd.readcsv("existing_data.csv")
-existing = existing.set_index("id")
 
-combined = pd.concat([existing, data], verify_integrity=True)
-print(combined)
+data = data.set_index("id")
+
+print(data)
